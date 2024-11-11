@@ -131,6 +131,7 @@ export default function Home() {
 	// Open modal if Availability form is valid
 	const handleCheckAvailability = (e: React.FormEvent) => {
 		e.preventDefault();
+
 		if (isAvailabilityValid) {
 			setIsModalOpen(true);
 		}
