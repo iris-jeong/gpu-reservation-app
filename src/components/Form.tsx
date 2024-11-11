@@ -1,17 +1,16 @@
 import { FC, FormEvent, ReactNode } from 'react';
 
 interface FormProps {
-	onSubmit: () => void;
+	onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 	children: ReactNode;
 }
 
 const Form: FC<FormProps> = ({ onSubmit, children }) => {
-	const handleSubmit = (event: FormEvent) => {
-		event.preventDefault();
-		onSubmit();
-	};
-
-	return <form onSubmit={handleSubmit}>{children}</form>;
+	return (
+		<form className="grid" onSubmit={onSubmit}>
+			{children}
+		</form>
+	);
 };
 
 export default Form;

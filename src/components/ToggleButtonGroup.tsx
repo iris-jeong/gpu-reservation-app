@@ -6,6 +6,7 @@ interface ToggleButtonGroupProps {
 	options: number[];
 	onChange: (selectedValue: number) => void;
 	selectedOption: number;
+	error?: string;
 }
 
 const ToggleButtonGroup: FC<ToggleButtonGroupProps> = ({
@@ -13,24 +14,29 @@ const ToggleButtonGroup: FC<ToggleButtonGroupProps> = ({
 	options,
 	onChange,
 	selectedOption,
+	error,
 }) => {
 	console.log(`# gpus: ${selectedOption}`);
 
 	return (
 		<div>
-			<div className="text-sm mb-1 tracking-wide">
-				<p>{label}</p>
+			<div>
+				<div className="text-sm mb-1 tracking-wide">
+					<p>{label}</p>
+				</div>
+				<div className="flex p-1 border-[1px] bg-[#F3F3F3] rounded">
+					{options.map((option, index) => (
+						<ToggleButton
+							key={index}
+							value={option}
+							isSelected={selectedOption === option}
+							onChange={onChange}
+							className="flex-grow"
+						/>
+					))}
+				</div>
 			</div>
-			<div className="p-1 border-solid border-[1.5px] w-fit rounded">
-				{options.map((option, index) => (
-					<ToggleButton
-						key={index}
-						value={option}
-						isSelected={selectedOption === option}
-						onChange={onChange}
-					/>
-				))}
-			</div>
+			{error && <small className="text-red-600">{error}</small>}
 		</div>
 	);
 };

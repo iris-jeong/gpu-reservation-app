@@ -7,6 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: FC<ButtonProps> = ({
+	type = 'button',
 	variant = 'primary',
 	isLoading = false,
 	disabled = false,
@@ -28,7 +29,7 @@ export const Button: FC<ButtonProps> = ({
 	}`;
 
 	return (
-		<button className={styles} {...props}>
+		<button type={type} className={styles} {...props}>
 			{isLoading ? <span>Loading...</span> : null}
 			{children}
 		</button>
