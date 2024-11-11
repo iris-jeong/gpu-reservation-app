@@ -16,8 +16,8 @@ export const Button: FC<ButtonProps> = ({
 	const baseStyles =
 		'px-10 py-5 bg-[#1945E2] hover:bg-[#0B3AE1] text-lg text-white font-semibold shadow-xl';
 	const variantStyles = {
-		primary: 'rounded-full mt-8 w-fit mx-auto',
-		secondary: 'rounded w-full',
+		primary: 'rounded w-full',
+		secondary: 'rounded-full mt-8 w-fit mx-auto',
 	};
 	const disabledStyles = {
 		disabled: 'opacity-50 cursor-default hover:bg-[#1945E2]',

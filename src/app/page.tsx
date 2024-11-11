@@ -125,29 +125,35 @@ export default function Home() {
 
 				<Modal isOpen={isModalOpen} onClose={toggleModal}>
 					<Form onSubmit={handleSubmitReservation}>
-						<RadioCardGroup
-							options={options}
-							onSelectionChange={handleReservationOptionChange}
-						/>
+						<div className="bg-orange-300 p-6">
+							<RadioCardGroup
+								options={options}
+								onSelectionChange={handleReservationOptionChange}
+							/>
+						</div>
 
-						<TextInput
-							id="email-address"
-							label="Email Address"
-							placeholder="Enter your email address"
-							error=""
-							startIcon={<HiOutlineMail />}
-						/>
-						<Button
-							isLoading={false}
-							disabled={!selectedOption}
-							onClick={handleSubmitReservation}
-						>
-							{selectedOption?.id === 'pending'
-								? 'Wait for price drop'
-								: selectedOption?.id === 'confirmed'
-								? 'Reserve now'
-								: 'Reserve now'}
-						</Button>
+						<div className="bg-lime-300 flex justify-center p-6">
+							<div className="w-fit bg-yellow-300">
+								<TextInput
+									id="email-address"
+									label="Email Address"
+									placeholder="Enter your email address"
+									error=""
+									startIcon={<HiOutlineMail />}
+								/>
+								<Button
+									isLoading={false}
+									disabled={!selectedOption}
+									onClick={handleSubmitReservation}
+								>
+									{selectedOption?.id === 'pending'
+										? 'Wait for price drop'
+										: selectedOption?.id === 'confirmed'
+										? 'Reserve now'
+										: 'Reserve now'}
+								</Button>
+							</div>
+						</div>
 					</Form>
 				</Modal>
 			</div>
