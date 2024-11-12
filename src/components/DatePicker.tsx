@@ -27,15 +27,20 @@ export default function DatePicker({
 	error,
 }: DatePickerProps) {
 	const [open, setOpen] = React.useState(false);
+	const errorId = error ? 'date-picker-error' : undefined;
 
 	return (
 		<>
-			<div className={`flex flex-col mb-4 ${className}`}>
+			<div className={`flex flex-col rounded-lg ${className}`}>
 				{label && <label className="mb-1 text-sm">{label}</label>}
 				<Popover open={open} onOpenChange={setOpen}>
 					<PopoverTrigger asChild>
 						<Button
 							variant="outline"
+							aria-haspopup="dialog"
+							aria-expanded={open}
+							aria-label="Choose a date"
+							aria-describedby={errorId}
 							className={`py-[30px] justify-start text-left text-lg font-normal bg-[#F3F3F3]${
 								!selectedDate ? 'text-muted-foreground' : ''
 							}`}
@@ -57,7 +62,11 @@ export default function DatePicker({
 					</PopoverContent>
 				</Popover>
 			</div>
-			{error && <small className="text-red-600">{error}</small>}
+			{error && (
+				<small id={errorId} className="text-red-600">
+					{error}
+				</small>
+			)}
 		</>
 	);
 }

@@ -19,12 +19,12 @@ const ToggleButtonGroup: FC<ToggleButtonGroupProps> = ({
 	console.log(`# gpus: ${selectedOption}`);
 
 	return (
-		<div>
+		<div role="group">
 			<div>
-				<div className="text-sm mb-1 tracking-wide">
+				<label className="text-sm mb-1">
 					<p>{label}</p>
-				</div>
-				<div className="flex p-1 border-[1px] bg-[#F3F3F3] rounded">
+				</label>
+				<div className="flex p-1 border-[1px] border-[#e1e5e4] bg-[#F3F3F3] rounded-lg shadow-sm">
 					{options.map((option, index) => (
 						<ToggleButton
 							key={index}

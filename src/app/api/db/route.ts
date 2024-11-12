@@ -6,7 +6,7 @@ export async function GET() {
 		await populateGpus();
 		await populateReservations();
 		return NextResponse.json({
-			message: 'GPU collection populated successfully',
+			message: 'GPU & Reservation collections populated successfully',
 		});
 	} catch (error) {
 		console.error('Error seeding the database', error);

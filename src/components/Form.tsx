@@ -7,7 +7,7 @@ interface FormProps {
 
 const Form: FC<FormProps> = ({ onSubmit, children }) => {
 	return (
-		<form className="grid" onSubmit={onSubmit}>
+		<form className="grid space-y-6" onSubmit={onSubmit}>
 			{children}
 		</form>
 	);

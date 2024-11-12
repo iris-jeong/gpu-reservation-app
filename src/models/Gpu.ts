@@ -6,6 +6,7 @@ export enum GpuStatus {
 }
 
 interface Gpu extends Document {
+	_id: mongoose.Types.ObjectId;
 	uuid: string;
 	modelType: string;
 	status: GpuStatus;

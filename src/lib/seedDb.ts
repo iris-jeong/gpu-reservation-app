@@ -18,7 +18,7 @@ export async function populateGpus() {
 		// Clear existing GPUs.
 		await Gpu.deleteMany({});
 
-		const numberOfGpus = 10;
+		const numberOfGpus = 100;
 		const gpuDocuments = [];
 		const modelType = 'NVIDIA H100';
 
@@ -52,7 +52,7 @@ export async function populateReservations() {
 		await Reservation.deleteMany({});
 
 		// Fetch GPUs to create reservations.
-		const gpus = await Gpu.find().limit(3); // Select the first few GPUs for reservations.
+		const gpus = await Gpu.find().limit(21);
 
 		if (gpus.length === 0) {
 			console.log('No GPUs found to create reservations');

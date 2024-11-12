@@ -16,6 +16,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
 	title: 'GPU Reservation App',
 	description: 'Reserve your compute time',
+	viewport: 'width=device-width, initial-scale=1',
 };
 
 export default function RootLayout({
