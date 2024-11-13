@@ -33,6 +33,13 @@ const AvailabilityForm: React.FC<AvailabilityFormProps> = ({
 	handleCheckAvailability,
 	isAvailabilityValid,
 }) => {
+	// Function to handle clearing the default '0' on focus
+	const handleMaxPriceFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+		if (e.target.value === '0') {
+			handleMaxPriceChange({ ...e, target: { ...e.target, value: '' } });
+		}
+	};
+
 	return (
 		<section
 			aria-labelledby="availability-section"
@@ -77,6 +84,7 @@ const AvailabilityForm: React.FC<AvailabilityFormProps> = ({
 						id="maxPrice"
 						value={maxPrice}
 						onChange={handleMaxPriceChange}
+						onFocus={handleMaxPriceFocus}
 						startIcon={<FaDollarSign />}
 						error={availabilityErrors.maxPrice || ''}
 						required
