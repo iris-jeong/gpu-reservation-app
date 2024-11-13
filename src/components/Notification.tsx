@@ -9,7 +9,7 @@ const Notification: FC<NotificationProps> = ({ message, onClose }) => {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			onClose();
-		}, 3000); // Adjust duration as needed
+		}, 3000);
 
 		return () => clearTimeout(timer);
 	}, [onClose]);

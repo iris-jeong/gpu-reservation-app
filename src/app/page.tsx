@@ -109,7 +109,7 @@ export default function Home() {
 		<main className="pt-8 sm:pt-24 md:pt-48 px-4 sm:px-8 w-screen min-w-screen sm:max-w-xl font-[family-name:var(--font-geist-sans)]">
 			{showNotification && (
 				<Notification
-					message="Reservation confirmed successfully!"
+					message="Reservation successful!"
 					onClose={() => setShowNotification(false)}
 				/>
 			)}
