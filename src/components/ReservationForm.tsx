@@ -39,7 +39,7 @@ const ReservationForm: React.FC<ReservationFormProps> = ({
 					selectedOptionId={selectedReservationOption?.id}
 				/>
 				<div className="flex justify-center w-screen bg-[#ECEDEF]">
-					<div className="w-full py-12 max-w-[500px]">
+					<div className="w-full py-12 px-2 max-w-[500px]">
 						<TextInput
 							id="email-address"
 							label="Email Address"
@@ -49,14 +49,14 @@ const ReservationForm: React.FC<ReservationFormProps> = ({
 							error={reservationErrors.email}
 							startIcon={<HiOutlineMail />}
 							required
-							className="mb-6 w-[500px]"
+							className="mb-6 sm:w-[500px]"
 							inputClass="bg-white border-[#DCDCDC]"
 						/>
 						<Button
 							type="submit"
 							isLoading={false}
 							disabled={!isReservationValid}
-							className="w-[500px]"
+							className="sm:w-[500px]"
 						>
 							{selectedReservationOption?.id === 'pending'
 								? 'Wait for price drop'

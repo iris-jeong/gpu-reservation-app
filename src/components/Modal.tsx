@@ -57,7 +57,7 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
 				ref={modalRef}
 				className={`${
 					isOpen ? 'animate-slideInUp' : 'animate-slideOutDown'
-				} fixed bottom-0 bg-[#CDCDCD] rounded shadow-lg`}
+				} fixed bottom-0 bg-[#CDCDCD] rounded shadow-lg max-h-[90vh] sm:max-h-[80vh] overflow-hidden`}
 				role="dialog"
 				aria-modal="true"
 				tab-index={-1}
@@ -69,7 +69,9 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
 				>
 					<CgClose />
 				</button>
-				{children}
+				<div className="max-h-[90vh] sm:max-h-[80vh] overflow-y-auto">
+					{children}
+				</div>
 			</div>
 		</div>
 	);
