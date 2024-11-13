@@ -6,6 +6,20 @@ export interface AvailabilityResponse {
 	options: ReservationOption[];
 }
 
+export interface NewReservation {
+	email: string;
+	gpuIds: string[];
+	startDate: Date;
+	endDate: Date;
+	numberOfDays: number;
+	status: 'pending' | 'confirmed' | 'canceled';
+	createdAt: Date;
+}
+
+export interface ReservationResponse {
+	reservation: NewReservation;
+}
+
 export interface ReservationOption {
 	id: string;
 	label: string;
@@ -52,7 +66,7 @@ export const checkAvailability = async (data: {
 // Create a new reservation.
 export const createReservation = async (
 	data: ReservationData
-): Promise<any> => {
+): Promise<ReservationResponse> => {
 	try {
 		const response = await axios.post('/api/reservations', data);
 		return response.data;

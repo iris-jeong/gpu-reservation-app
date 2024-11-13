@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useRef, useState } from 'react';
+import { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { CgClose } from 'react-icons/cg';
 
 interface ModalProps {
@@ -18,21 +18,24 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
 			// Delay the unmounting to allow the slide-out animation to complete.
 			setTimeout(() => {
 				setIsVisible(false);
-			}, 300); // Match the animation duration (300ms).
+			}, 300);
 		}
 	}, [isOpen]);
 
-	// Close the modal when user clicks outside of it.
-	useEffect(() => {
-		function handleClickOutside(event: MouseEvent) {
+	const handleClickOutside = useCallback(
+		(event: MouseEvent) => {
 			if (
 				modalRef.current &&
 				!modalRef.current.contains(event.target as Node)
 			) {
 				onClose();
 			}
-		}
+		},
+		[onClose]
+	);
 
+	// Close the modal when user clicks outside of it.
+	useEffect(() => {
 		if (isOpen) {
 			document.addEventListener('mousedown', handleClickOutside);
 		}
@@ -42,7 +45,7 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
 				document.removeEventListener('mousedown', handleClickOutside);
 			}
 		};
-	}, [isOpen]);
+	}, [isOpen, handleClickOutside]);
 
 	if (!isVisible) return null;
 
