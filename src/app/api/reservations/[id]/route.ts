@@ -3,14 +3,12 @@ import connectToDB from '@/lib/db';
 import Reservation from '@/models/Reservation';
 
 // PUT : Update an existing reservation by ID.
-export async function PUT(
-	req: NextRequest,
-	{ params }: { params: { id: string } }
-) {
+export async function PUT(req: NextRequest) {
 	await connectToDB();
 
 	try {
-		const { id } = params;
+		const url = new URL(req.url);
+		const id = url.pathname.split('/').pop();
 		const updateData = await req.json();
 
 		if (!id) {
@@ -46,14 +44,12 @@ export async function PUT(
 }
 
 // DELETE : Delete a reservation by ID.
-export async function DELETE(
-	req: NextRequest,
-	{ params }: { params: { id: string } }
-) {
+export async function DELETE(req: NextRequest) {
 	await connectToDB();
 
 	try {
-		const { id } = params;
+		const url = new URL(req.url);
+		const id = url.pathname.split('/').pop();
 
 		if (!id) {
 			return NextResponse.json(

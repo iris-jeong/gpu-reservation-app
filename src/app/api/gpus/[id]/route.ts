@@ -3,14 +3,12 @@ import connectToDB from '@/lib/db';
 import Gpu from '@/models/Gpu';
 
 // PUT : Update existing GPU by ID.
-export async function PUT(
-	req: NextRequest,
-	{ params }: { params: { id: string } }
-) {
+export async function PUT(req: NextRequest) {
 	await connectToDB();
 
 	try {
-		const id = params.id;
+		const url = new URL(req.url);
+		const id = url.pathname.split('/').pop();
 		const updateData = await req.json();
 
 		if (!id) {
