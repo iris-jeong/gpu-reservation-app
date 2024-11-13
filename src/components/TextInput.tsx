@@ -8,6 +8,7 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
 	className?: string;
 	startIcon?: ReactNode;
 	endIcon?: ReactNode;
+	inputClass?: string;
 }
 
 const TextInput: FC<TextInputProps> = ({
@@ -18,6 +19,7 @@ const TextInput: FC<TextInputProps> = ({
 	className,
 	startIcon,
 	endIcon,
+	inputClass = '',
 	...props
 }) => {
 	return (
@@ -25,7 +27,7 @@ const TextInput: FC<TextInputProps> = ({
 			{label && (
 				<label
 					htmlFor={id}
-					className="text-sm mb-1 tracking-wide font-[family-name:var(--font-geist-sans)]"
+					className="text-sm mb-1 tracking-wide text-[#373737] font-[family-name:var(--font-geist-sans)]"
 				>
 					{label}
 				</label>
@@ -44,11 +46,13 @@ const TextInput: FC<TextInputProps> = ({
 					aria-describedby={error ? `${id}-error` : undefined}
 					aria-invalid={!!error}
 					aria-required={props.required}
-					className={`py-4 pl-4 w-full border-[1px] rounded-lg px-2 text-lg text-slate-900 bg-[#F3F3F3] font-[family-name:var(--font-geist-sans)] shadow-sm ${
-						error ? 'border-red-500' : 'border-[#e1e5e4]'
+					className={`py-4 pl-4 w-full border-[1px] rounded-xl px-2 text-lg bg-[#F3F3F3] font-[family-name:var(--font-geist-mono)] ${
+						error ? 'border-red-500' : 'border-[1.5px] border-[#fdfdfd]'
 					} focus:outline-none focus:ring-2 focus:ring-blue-500 ${
 						startIcon ? 'pl-9' : 'pl-2'
-					}  ${endIcon ? 'pr-0' : 'pr-0'}`}
+					}  ${
+						endIcon ? 'pr-0' : 'pr-0'
+					} placeholder:text-[#C2C2C2] ${inputClass}`}
 					{...props}
 				/>
 

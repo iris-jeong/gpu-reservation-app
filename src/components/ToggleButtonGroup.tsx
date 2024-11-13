@@ -21,10 +21,8 @@ const ToggleButtonGroup: FC<ToggleButtonGroupProps> = ({
 	return (
 		<div role="group">
 			<div>
-				<label className="text-sm mb-1">
-					<p>{label}</p>
-				</label>
-				<div className="flex p-1 border-[1px] border-[#e1e5e4] bg-[#F3F3F3] rounded-lg shadow-sm">
+				<label className="text-sm mb-1 text-[#373737]">{label}</label>
+				<div className="flex mt-1 p-2 border-[1px] border-[#e1e5e4] bg-[#F3F3F3] rounded-xl shadow-sm">
 					{options.map((option, index) => (
 						<ToggleButton
 							key={index}

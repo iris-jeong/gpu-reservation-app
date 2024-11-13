@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { format } from 'date-fns';
-import { CalendarIcon } from 'lucide-react'; // Replace with your icon if needed
+import { CalendarIcon } from 'lucide-react';
 import {
 	Popover,
 	PopoverContent,
@@ -31,8 +31,10 @@ export default function DatePicker({
 
 	return (
 		<>
-			<div className={`flex flex-col rounded-lg ${className}`}>
-				{label && <label className="mb-1 text-sm">{label}</label>}
+			<div className={`flex flex-col rounded-xl ${className}`}>
+				{label && (
+					<label className="mb-1 text-sm text-[#373737]">{label}</label>
+				)}
 				<Popover open={open} onOpenChange={setOpen}>
 					<PopoverTrigger asChild>
 						<Button
@@ -41,11 +43,14 @@ export default function DatePicker({
 							aria-expanded={open}
 							aria-label="Choose a date"
 							aria-describedby={errorId}
-							className={`py-[30px] justify-start text-left text-lg font-normal bg-[#F3F3F3]${
+							className={`py-[30px] justify-start text-left text-lg font-normal bg-[#F3F3F3] rounded-xl font-[family-name:var(--font-geist-mono)] ${
 								!selectedDate ? 'text-muted-foreground' : ''
 							}`}
 						>
-							<CalendarIcon className="mr-2 h-4 w-4 text-slate-900" />
+							<CalendarIcon
+								className="mr-2 h-4 w-4"
+								style={{ color: '#6b7280' }}
+							/>
 							{selectedDate ? (
 								format(selectedDate, 'PPP')
 							) : (

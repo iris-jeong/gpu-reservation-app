@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
 							id: 'confirmed',
 							label: 'Immediate Reservation',
 							title: 'Reserve now at current market price',
-							description: `Reserve ${modelType} GPUs with a daily rate based on each day's availability.`,
+							description: `The GPUs requested are available during the specified days. Reserve ${modelType} GPUs with a daily rate based on each day's availability.`,
 							gpuModel: modelType,
 							gpuCount,
 							gpuIds: allAvailableGpuIds,
@@ -128,7 +128,7 @@ export async function POST(req: NextRequest) {
 						duration: `${numDays} ${dayLabel}`,
 						isPending: true,
 						caption:
-							'If the price does not go down to your maximum average price before the start date, your reservation will be canceled and you will pay nothing.',
+							'Your reservation will be canceled if the price does not drop before your start date.',
 					},
 					{
 						id: 'confirmed',

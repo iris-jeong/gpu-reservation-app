@@ -36,13 +36,13 @@ const AvailabilityForm: React.FC<AvailabilityFormProps> = ({
 	return (
 		<section
 			aria-labelledby="availability-section"
-			className="text-slate-900 font-[family-name:var(--font-geist-sans)]"
+			className="font-[family-name:var(--font-geist-sans)]"
 		>
 			<h3 id="availability-section" className="sr-only">
 				Check GPU Availability
 			</h3>
 			<Form onSubmit={handleCheckAvailability}>
-				<div className="grid grid-cols-1">
+				<div className="grid grid-cols-1 mb-[-8px]">
 					<ToggleButtonGroup
 						label="# of GPUs"
 						options={[1, 2, 3, 4, 5, 6, 7, 8]}
@@ -52,7 +52,7 @@ const AvailabilityForm: React.FC<AvailabilityFormProps> = ({
 					/>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-3 space-y-5 sm:space-y-0 sm:gap-8">
+				<div className="grid grid-cols-1 md:grid-cols-3 space-y-4 sm:space-y-0 gap-1 sm:gap-4 md:gap-8">
 					<DatePicker
 						selectedDate={selectedDate}
 						onDateChange={handleDateChange}
@@ -87,8 +87,9 @@ const AvailabilityForm: React.FC<AvailabilityFormProps> = ({
 					type="submit"
 					id="check-availability-button"
 					disabled={!isAvailabilityValid}
+					className="mt-10"
 				>
-					Check availability
+					Check Availability
 				</Button>
 			</Form>
 		</section>

@@ -40,12 +40,12 @@ const RadioCard: FC<RadioCardProps> = ({
 		startDate instanceof Date ? startDate : new Date(startDate);
 
 	return (
-		<article className="mt-4">
+		<article className="mt-4 max-w-[500px]">
 			<div
 				role="radio"
 				aria-checked={isSelected}
 				tabIndex={0}
-				className={`grid grid-cols-[auto,1fr] items-start py-2 sm:py-4 md:py-6 pl-1 md:px-4 border-[1.5px] bg-[#FDFDFD] rounded-lg sm:min-h-[200px] md:min-h-[270px] cursor-pointer hover:shadow-md hover:bg-white ${
+				className={`grid grid-cols-[auto,1fr] items-start py-2 sm:py-4 md:py-6 pl-1 md:px-4 border-[1.5px] bg-[#FDFDFD] rounded-lg h-[300px] min-[550px]:h-[240px] sm:h-[260px] min-[768px]:h-[270px] md:h-[300px] lg:h-[260px] cursor-pointer hover:shadow-md hover:bg-white ${
 					isSelected ? 'border-[#0031F5] border-2/50 shadow-sm' : ''
 				}`}
 				onClick={onSelect}
@@ -76,9 +76,9 @@ const RadioCard: FC<RadioCardProps> = ({
 					</header>
 
 					<div>
-						<div className="mb-2 flex justify-between">
+						<div className="flex justify-between items-center">
 							<p className="font-bold font-[family-name:var(--font-geist-mono)]">{`${gpuModel} (${gpuCount} GPUs)`}</p>
-							<p className="font-bold font-[family-name:var(--font-geist-mono)]">
+							<p className="text-xl font-bold font-[family-name:var(--font-geist-mono)]">
 								${price}
 							</p>
 						</div>
@@ -100,7 +100,7 @@ const RadioCard: FC<RadioCardProps> = ({
 				</div>
 			</div>
 			{caption && (
-				<p className="px-2 sm:px-6 md:px-10 py-2 text-[#707070] text-center text-[12px] italic">
+				<p className="px-2 sm:px-6 md:px-10 pt-2 text-[#707070] text-center text-[12px] italic">
 					{caption}
 				</p>
 			)}

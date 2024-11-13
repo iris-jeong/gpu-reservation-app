@@ -23,10 +23,10 @@ const ToggleButton: FC<ToggleButtonProps> = ({
 				if (e.key === 'Enter' || e.key === ' ') onChange(value);
 			}}
 			onClick={() => onChange(value)}
-			className={`text-slate-900 text-lg font-medium hover:text-white px-4 sm:px-5 py-3 mx-[1px] rounded-lg ${
+			className={`font-medium text-lg px-3 sm:px-4 py-2 mx-[1px] rounded-lg font-[family-name:var(--font-geist-mono)] ${
 				isSelected
-					? 'bg-[#0031F5] text-white hover:bg-[#0049E6]'
-					: 'bg-[#F3F3F3] hover:text-slate-900 hover:bg-[#DDDDDD]'
+					? 'bg-[#2A6DFF] text-white hover:bg-[#1159F4]'
+					: 'bg-[#F3F3F3] hover:bg-[#DDDDDD]'
 			} ${className}`}
 		>
 			{value}

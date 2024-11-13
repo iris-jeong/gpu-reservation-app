@@ -106,7 +106,7 @@ export default function Home() {
 	};
 
 	return (
-		<main className="pt-8 sm:pt-24 md:pt-48 px-4 sm:px-8 w-screen min-w-screen sm:max-w-xl font-[family-name:var(--font-geist-sans)]">
+		<main className="w-screen min-w-screen sm:max-w-xl pt-8 sm:pt-24 md:pt-48 px-4 sm:px-8 text-[#0A192F] font-[family-name:var(--font-geist-sans)]">
 			{showNotification && (
 				<Notification
 					message="Reservation successful!"
@@ -117,13 +117,10 @@ export default function Home() {
 				<h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4">
 					Reserve NVIDIA H100 GPU Power
 				</h1>
-				<h2 className="text-lg tracking-tight mb-4 sm:mb-6 text-slate-900 font-[family-name:var(--font-geist-mono)]">
+				<h2 className="leading-6 tracking-tight mb-4 sm:mb-6 text-[#112240] font-[family-name:var(--font-geist-mono)]">
 					Access high-performance GPU computing with easy reservations by the
-					day.
+					day. Get started by entering your reservation details below.
 				</h2>
-				<p className="text-slate-600 font-[family-name:var(--font-geist-sans)]">
-					Get started by entering your reservation details below.
-				</p>
 			</header>
 
 			<AvailabilityForm

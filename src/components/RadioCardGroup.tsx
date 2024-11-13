@@ -17,10 +17,7 @@ const RadioCardGroup: FC<RadioCardGroupProps> = ({
 			? options.findIndex((option) => option.id === selectedOptionId)
 			: null
 	);
-	const label =
-		options.length > 1
-			? 'Select an option:'
-			: 'Good news! The GPU resources are available for booking.';
+	const label = options.length > 1 ? 'Select an option:' : 'Good news!';
 
 	const handleSelect = (index: number) => {
 		setSelectedIndex(index);
@@ -41,14 +38,14 @@ const RadioCardGroup: FC<RadioCardGroupProps> = ({
 	return (
 		<div
 			role="group"
-			className="mx-auto max-w-[1200px] pt-10 pb-2 px-2 sm:px-6 md:px-16"
+			className="mx-auto max-w-[1200px] pt-10 pb-2 px-2 sm:px-6 min-[768px]:px-8 md:px-16"
 		>
-			<label className="font-[family-name:var(--font-geist-sans)]">
+			<label className="text-xl font-semibold font-[family-name:var(--font-geist-sans)]">
 				{label}
 			</label>
 
 			<div
-				className={`grid gap-4 ${
+				className={`mt-4 grid gap-4 ${
 					options.length === 1 ? 'grid-cols-1 ' : 'md:grid-cols-2'
 				}`}
 			>

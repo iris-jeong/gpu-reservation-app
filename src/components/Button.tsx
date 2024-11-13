@@ -17,9 +17,9 @@ export const Button: FC<ButtonProps> = ({
 	...props
 }) => {
 	const baseStyles =
-		'px-10 py-5 bg-[#0031F5] hover:bg-[#002DE3] text-lg text-white font-semibold shadow-xl font-[family-name:var(--font-geist-sans)]';
+		'px-10 py-5 bg-[#2A6DFF] hover:bg-[#1159F4] text-lg text-white font-semibold shadow-xl font-[family-name:var(--font-geist-mono)]';
 	const variantStyles = {
-		primary: 'rounded-lg w-full',
+		primary: 'rounded-xl w-full',
 		secondary: 'rounded-full mt-8 w-fit mx-auto',
 	};
 	const disabledStyles = {
